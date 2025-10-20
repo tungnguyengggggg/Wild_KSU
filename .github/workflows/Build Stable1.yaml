@@ -26,13 +26,13 @@ jobs:
     - name: Download kernel source
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
-        git clone --branch thirteen https://github.com/PixelOS-Devices-old/kernel_xiaomi_lisa.git --depth=1
+        git clone https://github.com/PixelExperience-Devices/kernel_xiaomi_lisa.git --depth=1
         
     - name: Integrate KernelSU
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/kernel_xiaomi_lisa
         rm -rf KernelSU/
-        curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -
+        curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s susfs-main
         
     - name: Compiling Kernel
       run: |
