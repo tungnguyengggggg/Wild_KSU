@@ -28,6 +28,11 @@ jobs:
         cd $GITHUB_WORKSPACE/kernel_workspace
         git clone https://github.com/PixelExperience-Devices/kernel_xiaomi_lisa --depth=1
         
+    - name: Integrate KernelSU
+      run: |
+        cd $GITHUB_WORKSPACE/kernel_workspace/kernel_xiaomi_lisa
+        rm -rf KernelSU/
+        curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -
         
     - name: Compiling Kernel
       run: |
